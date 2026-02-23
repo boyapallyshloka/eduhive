@@ -1,0 +1,10 @@
+flask
+flask-cors
+flask-sqlalchemy
+flask-jwt-extended
+PyPDF2
+transformers
+torch
+flask-mail
+sentencepiece
+ 
