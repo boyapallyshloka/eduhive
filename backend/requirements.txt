@@ -3,7 +3,7 @@ flask-cors
 flask-sqlalchemy
 flask-jwt-extended
 flask-mail
-PyPDF2
+pypdf
 google-generativeai
 python-dotenv
 gunicorn

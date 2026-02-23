@@ -51,8 +51,10 @@ with app.app_context():
         db.session.commit()
         print("✅ Default Admin Created Successfully!")
 
-if __name__ == '__main__':
-    upload_path = app.config.get('UPLOAD_FOLDER', 'uploads')
+if __name__ == "__main__":
+    upload_path = app.config.get("UPLOAD_FOLDER", "uploads")
     if not os.path.exists(upload_path):
         os.makedirs(upload_path)
-    app.run(debug=True, port=5000)
+
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
