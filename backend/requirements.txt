@@ -7,4 +7,5 @@ transformers
 torch
 flask-mail
 sentencepiece
+gunicorn
  
