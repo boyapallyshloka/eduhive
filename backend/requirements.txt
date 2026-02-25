@@ -7,3 +7,4 @@ pypdf
 google-generativeai
 python-dotenv
 gunicorn
+psycopg2-binary
