@@ -39,7 +39,7 @@ const Dashboard = () => {
   const [showUpload, setShowUpload] = useState(false);
   const [uploadData, setUploadData] = useState({ title: '', university: '', course: '', semester: '', description: '', tags: '', file: null });
 
-  const API_URL = "http://127.0.0.1:5000/api/resource/uploads/";
+  const API_URL = "`${import.meta.env.VITE_API_URL}/resource/uploads/`";
 
   const fetchData = useCallback(async () => {
     setLoading(true);

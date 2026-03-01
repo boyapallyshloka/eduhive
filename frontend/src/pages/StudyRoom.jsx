@@ -156,7 +156,7 @@ const StudyRoom = () => {
     }
   };
 
-  const pdfUrl = `http://127.0.0.1:5000/api/resource/file/${id}`;
+  const pdfUrl = `${import.meta.env.VITE_API_URL}/resource/file/${id}`;
 
   return (
     <div className="h-[100dvh] flex flex-col bg-[#F8FAFC] overflow-hidden font-sans text-slate-900">

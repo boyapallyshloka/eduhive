@@ -16,7 +16,7 @@ const Profile = () => {
     university: '', branch: '', semester: '', bio: '', avatarFile: null
   });
 
-  const API_URL = "http://127.0.0.1:5000/api/resource/uploads/";
+  const API_URL = "`${import.meta.env.VITE_API_URL}/resource/uploads/`";
 
   useEffect(() => {
     if (!user.id) return;

@@ -27,7 +27,7 @@ const Leaderboard = () => {
   }, []);
 
   const getAvatar = (user) => 
-    user.avatar ? `http://127.0.0.1:5000/api/resource/uploads/${user.avatar}` : null;
+    user.avatar ? `${import.meta.env.VITE_API_URL}/resource/file/${user.avatar}` : null;
 
   const getTheme = (points) => {
     if (points >= 1000) return {
