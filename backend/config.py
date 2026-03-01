@@ -7,7 +7,7 @@ class Config:
     JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY")
 
     # ---- DATABASE CONFIG ----
-    database_url = os.environ.get("DATABASE_URL")
+  SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL") + "?sslmode=require"
 
     if database_url:
         # Render gives postgres:// but SQLAlchemy needs postgresql://
