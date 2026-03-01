@@ -16,7 +16,11 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 
-CORS(app)
+CORS(
+    app,
+    resources={r"/api/*": {"origins": "*"}},
+    supports_credentials=True
+)
 
 JWTManager(app)
 
