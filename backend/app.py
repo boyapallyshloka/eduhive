@@ -5,8 +5,7 @@ from flask_jwt_extended import JWTManager
 from werkzeug.security import generate_password_hash
 from config import Config
 from extensions import db, mail
-from models.user import User      
-from models.resource import Resource 
+from models.user import User
 from routes.auth_routes import auth_bp
 from routes.resource_routes import resource_bp
 from routes.ai_routes import ai_bp
@@ -16,7 +15,16 @@ from routes.admin_routes import admin_bp
 app = Flask(__name__)
 app.config.from_object(Config)
 
-CORS(app)
+# ✅ FIXED CORS FOR VERCEL
+CORS(app, resources={
+    r"/api/*": {
+        "origins": [
+            "https://eduhive-frontend-alpha.vercel.app",
+            "https://eduhive-frontend-rf6bebuy3-boyapallyshlokas-projects.vercel.app"
+        ]
+    }
+}, supports_credentials=True)
+
 JWTManager(app)
 
 # Init Extensions
@@ -30,11 +38,10 @@ app.register_blueprint(ai_bp, url_prefix='/api/ai')
 app.register_blueprint(forum_bp, url_prefix='/api/forum')
 app.register_blueprint(admin_bp, url_prefix='/api/admin')
 
-# Create DB
+# Create DB + Default Admin
 with app.app_context():
-    db.create_all() # This should work now!
+    db.create_all()
 
-    # Create Admin
     admin_email = 'admin@eduhive.com'
     if not User.query.filter_by(email=admin_email).first():
         print(f"⚙️ Creating default admin: {admin_email}")
