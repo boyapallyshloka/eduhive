@@ -15,12 +15,8 @@ from routes.admin_routes import admin_bp
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# ✅ FIXED CORS FOR VERCEL
-CORS(
-    app,
-    resources={r"/api/*": {"origins": "*"}},
-    supports_credentials=True
-)
+
+CORS(app)
 
 JWTManager(app)
 
