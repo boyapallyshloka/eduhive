@@ -18,7 +18,13 @@ app.config.from_object(Config)
 
 CORS(
     app,
-    resources={r"/api/*": {"origins": "*"}},
+    resources={
+        r"/api/*": {
+            "origins": [
+                "https://eduhive-ai.vercel.app"
+            ]
+        }
+    },
     supports_credentials=True
 )
 
