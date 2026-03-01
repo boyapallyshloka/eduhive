@@ -1,13 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:5000/api',
-  // Do NOT set Content-Type here. Let Axios handle it per request.
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
-// Add Interceptor for Token (Keep this)
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
