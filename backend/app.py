@@ -16,14 +16,11 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 # ✅ FIXED CORS FOR VERCEL
-CORS(app, resources={
-    r"/api/*": {
-        "origins": [
-            "https://eduhive-frontend-alpha.vercel.app",
-            "https://eduhive-frontend-rf6bebuy3-boyapallyshlokas-projects.vercel.app"
-        ]
-    }
-}, supports_credentials=True)
+CORS(
+    app,
+    resources={r"/api/*": {"origins": "*"}},
+    supports_credentials=True
+)
 
 JWTManager(app)
 
